@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Plugin.Notifications.Abstractions\Plugin.Notifications.Abstractions.csproj">
-      <Project>{1ed7f929-0eaa-44f2-8b08-38414080e3e3}</Project>
+      <Project>{D0508E3A-1759-4BB8-B065-9698AC0B4587}</Project>
       <Name>Plugin.Notifications.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>

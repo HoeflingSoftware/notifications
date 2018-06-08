@@ -16,7 +16,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Plugin.Notifications.Abstractions\Plugin.Notifications.Abstractions.csproj" />
   </ItemGroup>
-
-  <Import Project="..\Plugin.Notifications.Shared\Plugin.Notifications.Shared.projitems" Label="Shared" />
-
+  <Import Project="..\Plugin.Notifications.Shared\Plugin.Notifications.Shared.projitems" Label="Shared" Condition="Exists('..\Plugin.Notifications.Shared\Plugin.Notifications.Shared.projitems')" />
 </Project>
