@@ -48,7 +48,7 @@ namespace Plugin.Notifications
                 FireDate = notification.SendTime.ToNSDate(),
                 AlertTitle = notification.Title,
                 AlertBody = notification.Message,
-                SoundName = notification.Sound,
+                SoundName = UILocalNotification.DefaultSoundName,// notification.Sound,
                 UserInfo = notification.Metadata.ToNsDictionary()
             };
             return this.Invoke(() => UIApplication.SharedApplication.ScheduleLocalNotification(not));
@@ -85,7 +85,7 @@ namespace Plugin.Notifications
             {
                 Title = native.AlertTitle,
                 Message = native.AlertBody,
-                Sound = native.SoundName,
+                Sound = UILocalNotification.DefaultSoundName,// native.SoundName,
                 Date = native.FireDate.ToDateTime(),
                 Metadata = native.UserInfo.FromNsDictionary()
             };

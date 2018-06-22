@@ -37,7 +37,10 @@ namespace Plugin.Notifications
                 Body = notification.Message
             };
             if (!String.IsNullOrWhiteSpace(notification.Sound))
-                content.Sound = UNNotificationSound.GetSound(notification.Sound);
+            {
+                //content.Sound = UNNotificationSound.GetSound(notification.Sound);
+                content.Sound = UNNotificationSound.GetSound(UILocalNotification.DefaultSoundName);
+            }
 
             var dt = notification.SendTime;
             var request = UNNotificationRequest.FromIdentifier(
@@ -94,7 +97,7 @@ namespace Plugin.Notifications
                 Id = i,
                 Title = native.Content.Title,
                 Message = native.Content.Body,
-                Sound = native.Content.Sound.ToString(),
+                Sound = UILocalNotification.DefaultSoundName,// native.Content.Sound.ToString(),
                 Date = (native.Trigger as UNCalendarNotificationTrigger)?.NextTriggerDate.ToDateTime() ?? DateTime.MinValue,
                 Metadata = native.Content.UserInfo.FromNsDictionary()
             };

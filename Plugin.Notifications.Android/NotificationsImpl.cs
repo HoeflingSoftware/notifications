@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Media;
 using Android.OS;
 using Android.Support.V4.App;
 
@@ -59,6 +60,7 @@ namespace Plugin.Notifications
 
                 var builder = new NotificationCompat.Builder(Application.Context)
                     .SetAutoCancel(true)
+                    .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
                     .SetContentTitle(notification.Title)
                     .SetContentText(notification.Message)
                     .SetSmallIcon(AppIconResourceId)
