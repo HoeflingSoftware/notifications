@@ -7,6 +7,15 @@
         <Configurations>Debug;Release;Staging</Configurations>
     </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Staging|AnyCPU' ">
+    <IntermediateOutputPath>obj\Staging</IntermediateOutputPath>
+    <DebugType></DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Staging</OutputPath>
+    <DefineConstants></DefineConstants>
+    <NoWarn></NoWarn>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
     <ItemGroup>
         <Compile Include="..\Plugin.Notifications.Shared\AssemblyInfo.cs" Link="CommonAssemblyInfo.cs" />
     </ItemGroup>
