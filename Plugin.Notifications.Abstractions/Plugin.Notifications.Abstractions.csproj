@@ -4,6 +4,7 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     <RootNamespace>Plugin.Notifications</RootNamespace>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <Configurations>Debug;Release;Staging</Configurations>
     </PropertyGroup>
 
     <ItemGroup>

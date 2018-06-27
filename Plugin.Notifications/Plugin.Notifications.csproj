@@ -3,9 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <Configurations>Debug;Release;Staging</Configurations>
     </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;BAIT</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|AnyCPU'">
     <DefineConstants>TRACE;BAIT</DefineConstants>
   </PropertyGroup>
 
