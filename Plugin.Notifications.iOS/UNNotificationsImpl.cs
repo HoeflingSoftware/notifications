@@ -36,7 +36,7 @@ namespace Plugin.Notifications
                 Title = notification.Title,
                 Body = notification.Message
             };
-            if (!String.IsNullOrWhiteSpace(notification.Sound))
+            if (String.IsNullOrWhiteSpace(notification.Sound))
             {
                 //content.Sound = UNNotificationSound.GetSound(notification.Sound);
                 content.Sound = UNNotificationSound.GetSound(UILocalNotification.DefaultSoundName);
