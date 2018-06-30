@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Foundation;
@@ -26,10 +27,34 @@ namespace Plugin.Notifications
         });
 
 
+        // this code was being linked out so we moved the extention method to
+        // be an instance method
+        const string NOTIFICATION_ID_KEY = "notificationid";
+        static readonly object syncLock = new object();
+        public  int GeneratedNotificationId( Notification notification)
+        {
+            var id = 0;
+            var p = NSUserDefaults.StandardUserDefaults;
+
+            lock (syncLock)
+            {
+                var value = p.ValueForKey(new NSString(NOTIFICATION_ID_KEY));
+                if (value != null)
+                    id = (int)p.IntForKey(NOTIFICATION_ID_KEY);
+
+                id++;
+                p.SetInt(id, NOTIFICATION_ID_KEY);
+                p.Synchronize();
+
+                notification.Id = id;
+            }
+            return id;
+        }
+
         public override Task Send(Notification notification) => this.Invoke(async () =>
         {
             if (notification.Id == null)
-                notification.GeneratedNotificationId();
+                notification.Id = GeneratedNotificationId(notification);
 
             var content = new UNMutableNotificationContent
             {
