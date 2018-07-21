@@ -58,13 +58,13 @@ namespace Plugin.Notifications
                     launchIntent.PutExtra(pair.Key, pair.Value);
                 }
 
-                var builder = new NotificationCompat.Builder(Application.Context)
+                var builder = new Android.App.Notification.Builder(Application.Context)
                     .SetAutoCancel(true)
                     .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
                     .SetContentTitle(notification.Title)
                     .SetContentText(notification.Message)
                     .SetSmallIcon(AppIconResourceId)
-                    .SetPriority(priority.HasValue ? priority.Value : NotificationCompat.PriorityDefault)
+                    .SetPriority(priority.HasValue ? priority.Value : NotificationCompat.PriorityMax)
                     .SetContentIntent(TaskStackBuilder
                         .Create(Application.Context)
                         .AddNextIntent(launchIntent)

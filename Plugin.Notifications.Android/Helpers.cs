@@ -13,7 +13,7 @@ namespace Plugin.Notifications
 
         public static PendingIntent ToPendingIntent(this Notification notification, int id)
         {
-            var intent = new Intent(Application.Context, typeof(AlarmBroadcastReceiver)).PutExtra(NOTIFICATION_ID, id);
+            var intent = new Intent(Application.Context, typeof(AlarmService.AlarmBroadcastReceiver)).PutExtra(NOTIFICATION_ID, id);
             var pending = PendingIntent.GetBroadcast(Application.Context, id, intent, PendingIntentFlags.OneShot);
             return pending;
         }
@@ -21,7 +21,7 @@ namespace Plugin.Notifications
 
         public static PendingIntent GetNotificationPendingIntent(int id)
         {
-            var intent = new Intent(Application.Context, typeof(AlarmBroadcastReceiver)).PutExtra(NOTIFICATION_ID, id);
+            var intent = new Intent(Application.Context, typeof(AlarmService.AlarmBroadcastReceiver)).PutExtra(NOTIFICATION_ID, id);
             var pending = PendingIntent.GetBroadcast(Application.Context, id, intent, PendingIntentFlags.OneShot);
             return pending;
         }

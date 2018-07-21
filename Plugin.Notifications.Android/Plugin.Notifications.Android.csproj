@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\AcrSqliteConnection.cs" />
-    <Compile Include="AlarmBroadcastReceiver.cs" />
+    <Compile Include="AlarmService.cs" />
     <Compile Include="Infrastructure\DbNotification.cs" />
     <Compile Include="Infrastructure\DbNotificationMetadata.cs" />
     <Compile Include="Infrastructure\DbSettings.cs" />
@@ -64,6 +64,7 @@
     <Compile Include="NotificationsImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services.cs" />
+    <Compile Include="AlarmBinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NETStandard.Library">
